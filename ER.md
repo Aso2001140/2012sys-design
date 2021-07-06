@@ -1,7 +1,6 @@
 ```startuml
 @startuml
 Entity "顧客マスタ" as customer<m_customers>
-{
   + customer_code[PK]
   --
   pass
