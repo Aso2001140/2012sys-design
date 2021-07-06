@@ -31,7 +31,7 @@ entity "顧客マスタ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
         reg_date
     }
 
-entity "購入テーブル" as customer <m_customers> <<T,MASTER_MARK_COLOR>> {
+entity "購入テーブル" as customer <d_purchase> <<T,MASTER_MARK_COLOR>> {
         + order_id [PK]
         --
         customer_code [FK]
