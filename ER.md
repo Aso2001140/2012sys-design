@@ -31,6 +31,6 @@ entity "顧客マスタ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
         reg_date
     }
     
-    m_customers}|..||Entity02
+    顧客マスタ}|..||Entity02
 @enduml
 ```
