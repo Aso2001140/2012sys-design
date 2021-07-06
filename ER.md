@@ -39,13 +39,7 @@ entity "購入テーブル" as customer <m_customers> <<T,MASTER_MARK_COLOR>> {
         total_price
     }
     
-entity "購入詳細テーブル" as customer <m_customers> <<T,MASTER_MARK_COLOR>> {
-        + order_id [PK]
-        --
-        customer_code [FK]
-        purchase_date
-        total_price
-    }
+
 
 
     顧客マスタ}|..||Entity02
