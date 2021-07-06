@@ -41,7 +41,5 @@ entity "購入テーブル" as customer <m_customers> <<T,MASTER_MARK_COLOR>> {
     
 
 
-
-    顧客マスタ}|..||Entity02
 @enduml
 ```
