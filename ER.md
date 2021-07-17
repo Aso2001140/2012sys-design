@@ -49,7 +49,7 @@ entity "顧客マスタ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
     }
     
     
-    entity "商品マスタ" as customer <m_items> <<M,MASTER_MARK_COLOR>> {
+    entity "商品マスタ" as customer <m_items> <<A,MASTER_MARK_COLOR>> {
         + item_code [PK]
         --
         item_name
@@ -61,7 +61,7 @@ entity "顧客マスタ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
         red_date
     }
 
-    entity "カテゴリマスタ" as customer <m_category> <<M,MASTER_MARK_COLOR>> {
+    entity "カテゴリマスタ" as customer <m_category> <<G,MASTER_MARK_COLOR>> {
         + category_id [PK]
         --
         name
