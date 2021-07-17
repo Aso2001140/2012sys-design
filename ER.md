@@ -49,19 +49,19 @@ entity "顧客マスタ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
     }
     
     
-    entity "商品マスタ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
+    entity "商品マスタ" as customer <m_items> <<M,MASTER_MARK_COLOR>> {
         + item_code [PK]
         --
-        pass
-        name
-        address
-        tel
-        mail
+        item_name
+        price
+        +category_id[FK]
+        image
+        detail
         del_flag
-        reg_date
+        red_date
     }
 
-    entity "カテゴリマスタ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
+    entity "カテゴリマスタ" as customer <m_category> <<M,MASTER_MARK_COLOR>> {
         + category_id [PK]
         --
         name
