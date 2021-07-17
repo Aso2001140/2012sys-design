@@ -38,6 +38,14 @@ entity "顧客マスタ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
     purchase_date
     total_price
     }
+    
+ 　entity "購入詳細テーブル" as order<d_purchase_deta> <<T,TRANSACTION_MARK_COLOR>>{
+    +order_id[PK]
+    --
+    # customer_code[FK]
+    purchase_date
+    total_price
+    }
 
 customer       |o--o{     order 
 @enduml
