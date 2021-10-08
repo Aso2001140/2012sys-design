@@ -86,7 +86,7 @@ entity "トップページ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
     
     customer       |o-ri-o{     order 
     
-    order         　||-ri-|{     lottery
+    order         　|o-ri-o{     lottery
 
     order          ||-ri-|{     order_detail 
 
