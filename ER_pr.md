@@ -36,7 +36,7 @@ entity "トップページ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
     ガチャ
     }
     
-  entity "ガチャ" as lottery <d_purchase> <<T,TRANSACTION_MARK_COLOR>>{
+  entity "ガチャ" as lottery <d_lottery> <<T,TRANSACTION_MARK_COLOR>>{
     +登録者名[PK]
     +パスワード[PK]
     --
@@ -52,14 +52,14 @@ entity "トップページ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
     商品合計金額
     }
     
- entity "受注" as order_main <d_purchase_detail> <<T,TRANSACTION_MARK_COLOR>>{
+ entity "受注" as order_main <d_purchase_main> <<T,TRANSACTION_MARK_COLOR>>{
     +登録者情報[PK]
     +受注番号[PK]
     --
     受注情報
     }
     
- entity "受注明細" as order_sub <d_purchase_detail> <<T,TRANSACTION_MARK_COLOR>>{
+ entity "受注明細" as order_sub <d_purchase_sub> <<T,TRANSACTION_MARK_COLOR>>{
     +登録者情報[PK]
     +受注番号[PK]
     --
