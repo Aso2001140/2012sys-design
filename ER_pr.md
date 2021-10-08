@@ -22,13 +22,7 @@ package "ECサイト" as target_system {
 entity "トップページ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
         + customer_code [PK]
         --
-        pass
-        name
-        address
-        tel
-        mail
-        del_flag
-        reg_date
+        商品
     }
 
  entity "顧客テーブル" as order <d_purchase> <<T,TRANSACTION_MARK_COLOR>>{
