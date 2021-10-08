@@ -20,46 +20,53 @@ skinparam class {
 
 package "ECサイト" as target_system {
 entity "トップページ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
-        + customer_code [PK]
-        --
-        商品
+        ログイン
+        新規登録
+        商品一覧
+        カテゴリ一覧
+        順番指定
     }
 
  entity "顧客テーブル" as order <d_purchase> <<T,TRANSACTION_MARK_COLOR>>{
-    +order_id[PK]
+    +登録者名[PK]
+    +パスワード[PK]
     --
-    # customer_code[FK]
-    purchase_date
-    total_price
+    カート情報
+    ポイント情報
+    ガチャ
+    }
+    
+  entity "ガチャ" as lottery <d_purchase> <<T,TRANSACTION_MARK_COLOR>>{
+    +登録者名[PK]
+    +パスワード[PK]
+    --
+    ポイント情報
     }
     
  entity "購入詳細テーブル" as order_detail <d_purchase_detail> <<T,TRANSACTION_MARK_COLOR>>{
-    +order_id[PK]
-    +detail_id[PK]
+    +登録者情報[PK]
+    +カート情報[PK]
     --
-    # item_code[FK]
-    price
-    num
+    # 商品情報[FK]
+    商品金額
+    商品合計金額
     }
     
     
-    entity "商品マスタ" as items <m_items> <<M,MASTER_MARK_COLOR>> {
-        + item_code [PK]
+    entity "商品詳細" as items <m_items> <<M,MASTER_MARK_COLOR>> {
+        + 商品番号 [PK]
         --
-        item_name
-        price
-        +category_id[FK]
-        image
-        detail
-        del_flag
-        red_date
+        商品名
+        金額
+        +カテゴリー番号[FK]
+        イメージ写真
+        商品説明
     }
 
-    entity "カテゴリマスタ" as category <m_category> <<M,MASTER_MARK_COLOR>> {
-        + category_id [PK]
+    entity "カテゴリー" as category <m_category> <<M,MASTER_MARK_COLOR>> {
+        + カテゴリー番号[PK]
         --
-        name
-        red_date
+        カテゴリー名
     }
     
     
