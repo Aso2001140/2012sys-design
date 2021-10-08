@@ -52,6 +52,20 @@ entity "トップページ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
     商品合計金額
     }
     
+ entity "受注" as order_main <d_purchase_detail> <<T,TRANSACTION_MARK_COLOR>>{
+    +登録者情報[PK]
+    +受注番号[PK]
+    --
+    受注情報
+    }
+    
+ entity "受注明細" as order_sub <d_purchase_detail> <<T,TRANSACTION_MARK_COLOR>>{
+    +登録者情報[PK]
+    +受注番号[PK]
+    --
+    受注情報明細
+    }
+    
     
     entity "商品詳細" as items <m_items> <<M,MASTER_MARK_COLOR>> {
         + 商品番号 [PK]
@@ -71,6 +85,8 @@ entity "トップページ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
     
     
     customer       |o-ri-o{     order 
+    
+    order         　||-ri-||      lottery
 
     order          ||-ri-|{     order_detail 
 
