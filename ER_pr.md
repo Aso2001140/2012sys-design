@@ -92,7 +92,7 @@ entity "トップページ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
 
     order_detail    }-do-||     items 
 
-    items          }o-le-||     category 
+    customer          }o-le-||     category 
     
 
 @enduml
