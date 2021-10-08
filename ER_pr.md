@@ -94,7 +94,7 @@ entity "トップページ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
     
     order_main    }-do-||      order_sub
 
-    order_detail    }-do-||     items 
+    category    }-do-||     items 
 
     customer        }-do-||     category 
     
