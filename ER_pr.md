@@ -32,7 +32,8 @@ entity "顧客テーブル" as user <t_user> <<T,TRANSACTION_MARK_COLOR>> {
 
  entity "ガチャ" as lottery <lottery> <<M,MASTER_MARK_COLOR>>{
     +ユーザID[PK]
-    +景品ID[FK]
+    --
+    #景品ID[FK]
     }
     
   entity "ガチャ一覧" as all_prize <all_prize> <<M,MASTER_MARK_COLOR>>{
@@ -41,58 +42,48 @@ entity "顧客テーブル" as user <t_user> <<T,TRANSACTION_MARK_COLOR>> {
     
  entity "購入詳細テーブル" as order <t_order> <<T,TRANSACTION_MARK_COLOR>>{
     +ユーザID[PK][FK]
-    +カート情報[PK]
     --
-    # 商品情報[FK]
-    商品金額
-    商品合計金額
+    # 商品ID[FK]
+    購入日
     }
     
- entity "受注" as order_main <d_purchase_main> <<T,TRANSACTION_MARK_COLOR>>{
-    +登録者情報[PK]
-    +受注番号[PK]
+ entity "定期便" as order_sub <t_order_sub> <<T,TRANSACTION_MARK_COLOR>>{
+    +ユーザID[PK][FK]
     --
-    受注情報
+    # 商品ID[FK]
+    お届け日
     }
     
- entity "受注明細" as order_sub <d_purchase_sub> <<T,TRANSACTION_MARK_COLOR>>{
-    +登録者情報[PK]
-    +受注番号[PK]
+ entity "商品テーブル" as items <t_items> <<T,TRANSACTION_MARK_COLOR>>{
+    +商品ID[PK]
     --
-    受注情報明細
+    商品名
+    商品画像
+    商品値段
+    商品内容
+    在庫数
+    カテゴリID
     }
     
     
-    entity "商品詳細" as items <m_items> <<M,MASTER_MARK_COLOR>> {
-        + 商品番号 [PK]
+    entity "カテゴリ" as category <category> <<M,MASTER_MARK_COLOR>> {
+        + カテゴリID [PK]
         --
-        商品名
-        金額
-        +カテゴリー番号[FK]
-        イメージ写真
-        商品説明
-    }
-
-    entity "カテゴリー" as category <m_category> <<M,MASTER_MARK_COLOR>> {
-        + カテゴリー番号[PK]
-        --
-        カテゴリー名
+        # 商品ID[FK]
     }
     
     
-    customer       |o-ri-o{     order 
+    t_user          |o-ri-o{     lottery 
     
-    order          }-ri-||     lottery
+    lottery         }-ri-||      all_prize
 
-    order          ||-ri-|{     order_detail 
+    t_user          |o-ri-o{     t_order
     
-    order_detail   }-do-||     order_main
+    t_order         }-do-||      t_order_sub     
     
-    order_main    }-do-||      order_sub
+    t_order         }-do-||      t_items
 
-    category    }-do-||     items 
-
-    customer        }-do-||     category 
+    t_items         }-do-||      catedory 
     
 
 @enduml
