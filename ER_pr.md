@@ -83,7 +83,7 @@ entity "顧客テーブル" as user <t_user> <<T,TRANSACTION_MARK_COLOR>> {
     
     order         }-do-||      items
 
-    items         }-do-||      catedory 
+    items         }-do-||      category 
     
 
 @enduml
