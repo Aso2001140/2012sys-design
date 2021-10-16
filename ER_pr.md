@@ -73,17 +73,17 @@ entity "顧客テーブル" as user <t_user> <<T,TRANSACTION_MARK_COLOR>> {
     }
     
     
-    t_user          |o-ri-o{     lottery 
+    user          |o-ri-o{     lottery 
     
     lottery         }-ri-||      all_prize
 
-    t_user          |o-ri-o{     t_order
+    user          |o-ri-o{     order
     
-    t_order         }-do-||      t_order_sub     
+    order         }-do-||      order_sub     
     
-    t_order         }-do-||      t_items
+    order         }-do-||      items
 
-    t_items         }-do-||      catedory 
+    items         }-do-||      catedory 
     
 
 @enduml
