@@ -19,32 +19,28 @@ skinparam class {
 
 
 package "ECサイト" as target_system {
-entity "トップページ" as customer <m_customers> <<M,MASTER_MARK_COLOR>> {
-        ログイン
-        新規登録
-        商品一覧
-        カテゴリ一覧
-        順番指定
+entity "顧客テーブル" as user <t_user> <<T,TRANSACTION_MARK_COLOR>> {
+        +ユーザID[PK]
+        住所
+        電話番号
+        メール
+        ログイン情報
+        性別
+        パスワード
+        ポイント情報
     }
 
- entity "顧客テーブル" as order <d_purchase> <<T,TRANSACTION_MARK_COLOR>>{
-    +登録者名[PK]
-    +パスワード[PK]
-    --
-    カート情報
-    ポイント情報
-    ガチャ
+ entity "ガチャ" as lottery <lottery> <<M,MASTER_MARK_COLOR>>{
+    +ユーザID[PK]
+    +景品ID[FK]
     }
     
-  entity "ガチャ" as lottery <d_lottery> <<T,TRANSACTION_MARK_COLOR>>{
-    +登録者名[PK]
-    +パスワード[PK]
-    --
-    ポイント情報
+  entity "ガチャ一覧" as all_prize <all_prize> <<M,MASTER_MARK_COLOR>>{
+    +景品ID[PK]
     }
     
- entity "購入詳細テーブル" as order_detail <d_purchase_detail> <<T,TRANSACTION_MARK_COLOR>>{
-    +登録者情報[PK]
+ entity "購入詳細テーブル" as order <t_order> <<T,TRANSACTION_MARK_COLOR>>{
+    +ユーザID[PK][FK]
     +カート情報[PK]
     --
     # 商品情報[FK]
